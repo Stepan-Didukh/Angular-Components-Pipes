@@ -1,0 +1,25 @@
+<div class="d-flex">
+  <button class="style_form" (click)="registerHouse()">Create new house</button>
+  <br>
+  <div *ngIf="statusRegisterHouse">
+    <form (ngSubmit)="createNewHouse()" #regFormHouse="ngForm">
+      <input class="style_form" type="text" name="Street" placeholder="Street"
+             #StreetValue="ngModel"
+             [ngStyle]="{backgroundColor: StreetValue.invalid && StreetValue.dirty ? 'red' : 'green'}"
+             [(ngModel)]="newHouse.Street">
+
+      <input class="style_form" type="text" name="Area" placeholder="Area"
+             #AreaValue="ngModel"
+             [ngStyle]="{backgroundColor: AreaValue.invalid && AreaValue.dirty ? 'red' : 'green'}"
+             [(ngModel)]="newHouse.Area">
+
+      <input class="style_form" type="text" name="Price" placeholder="Price"
+             #PriceValue="ngModel"
+             [ngStyle]="{backgroundColor: PriceValue.invalid && PriceValue.dirty ? 'red' : 'green'}"
+             [(ngModel)]="newHouse.Price">
+
+
+      <button class="style_form" [disabled]="regFormHouse.invalid">Create</button>
+    </form>
+  </div>
+</div>

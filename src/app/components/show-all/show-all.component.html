@@ -1,0 +1,28 @@
+<div *ngFor="let h of Houses">
+
+  Name: {{h.Owner.Name}}
+
+  <div [style.color]="h.Owner.is_blocked ? 'red':'green'">
+
+    <button class="style_form" (click)="showContent(this,h);"> Show full info</button>
+
+    <div class="content" *ngIf="selectedIndex==h">
+      <h4>Owner</h4>
+      Name: {{h.Owner.Name}}
+      <br>
+      Surname: {{h.Owner.Surname}}
+      <br>
+      Email: {{h.Owner.Email}}
+      <h4>House</h4>
+      Street: {{h.Street}}
+      <br>
+      Area: {{h.Area}}
+      <br>
+      Price
+      <br>
+      UA: {{h.Price}}
+      <br>
+      USD: {{h.Price | currency: 24.5}}
+    </div>
+  </div>
+</div>
