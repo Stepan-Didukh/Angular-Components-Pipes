@@ -1,44 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <STYLE>
-    .style_form {
-      padding: 0.8rem;
-      margin: 1rem;
-    }
-  </STYLE>
-</head>
-<body>
-
-<button class="style_form" (click)="Search()">Search</button>
-<input class="style_form" type='text' (input)="onInput($event)">
-{{inputCont}}
+<app-search>[search]="search"</app-search>
 
 <br>
 
-<div style="display: flex">
-  <button class="style_form" (click)="register()">Register</button>
-  <button class="style_form" (click)="login()">login</button>
-  <div *ngIf="statusRegister"> register</div>
-  <div *ngIf="statusLogin">login</div>
-</div>
+<app-register>[register]="register"</app-register>
 
 <br>
 
-<div *ngFor="let house of Houses" style="margin: 1rem">
-  Street: {{house.Street}}
-  <br>
-  Area: {{house.Area}}
-  <br>
-  Price: {{house.Price}}
+<app-login>[login]="login" </app-login>
 
-</div>
+<br>
+
+<app-create-house>[CreateHouse]="CreateHouse"</app-create-house>
+
+<br>
+
+<app-show-all>[ShowAll]="ShowAll"</app-show-all>
 
 
-</body>
-</html>
+В минулій ДЗ у вас були будиночки, які ви ітерували
+До цих будиночків потрібно додати власника.
+Зробити масив з юзерів з стандартними полями юзера та полем is_blocked: boolean
+Тепер до будиночку додати власника, який буде один з юзерів з того масиву.
+Тепер коли ітеруєте масив будиночків відображаєте часткову інформацію про будинок. І додати кнопку show full info, яка буде відображати повну інформацію про будинок разом з власником.
+Якщо власник заблокований, то будинок обмальовувати червоним кольором.
+
+Далі зробити форму реєстраціх і логінації юзера.
+Реєструвати юзера і додавати його в масив з юзерами. Обовязково малідувати поля юзера за допомогою валідаторів форми і давати юзеру знати, яке поле заповнене не вірно. is_blocekd має бути рандомно.
+Логінація юзера. Якщо юзера з таким логіном і паролем знайдено, но видавати повідомлення Welcome. Якщо ні, то user is not found.
+
+Стоврення будиночку.
+Так само створювати як і юзера. Всі валідації мають бути присутні.
+Власника вибираємо рандомного з вже існуючих юзерів в масиві users.
